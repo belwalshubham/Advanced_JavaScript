@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced JS</title>
+    <p> It’s an object or pattern that allows us to traverse over a list or collection. Iterators define the sequences and implement the iterator protocol that returns an object by using a next() method that contains the value and done. The value contains
+        the next value of iterator sequence and the done is the boolean value true or false if the last value of the sequence has been consumed then it’s true else false. We can check if any entity is by default iterable or not</p>
+    <script>
+        let numbers = [100, 200, 300];
+        let iter = numbers[Symbol.iterator]();
+        console.log(iter.next());
+        iter.next();
+        console.log(iter.next());
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

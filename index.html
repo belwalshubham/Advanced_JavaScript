@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced JS</title>
+</head>
+
+<body>
+    <h1>Advanced JavaScript</h1>
+
+    <script>
+        // for of (loop)
+        let score = [80, 50, "shubham"]; // YOU CAN PASS ANYTHING INSIDE ARRAY NUMBER/STRING
+        for (let x of score) // FOR OF ALLOW YOU TO ITERATE OVER ITERABLE OBJECTS
+        {
+            console.log(x);
+        }
+
+        // tEMPLATE LITERALS
+
+        //. FIRST POINT- HERE YOU CAN USE BACKTICK (TEMPLATE LITERALS)
+        // for multiple line string we use template literal
+        // for example
+        let str = `
+    hello          
+
+    world`;
+
+        console.log(str);
+
+        let str1 = " shubham";
+        console.log(`my name is ${str1}.`);
+        //--------------------------------------------------------------------------------------------------------------------------------------
+        //ARRAY DESTRUCTURING            
+
+        // it is an efficient way to extract multiple values from data that is stored in arrays or objects.                            
+        let book = ["book", 200, 300];
+        let [name, page, price] = book;
+        console.log(price);
+
+        //ARROW FUNCTION
+        // it allow you to create functions in a cleaner way compared to regular functions.
+        let hello = () => console.log("hello");
+        hello(); // function call       
+
+
+        //OBJECTS LITERALS
+        let name1 = "shubham belwal";
+        let course = "B.tech";
+        let interest = "web development";
+
+        var obj = {
+            name,
+            course,
+            interest,
+        };
+        console.log(obj);
+
+        /*OOP (object Oriented programming) ES6 version
+         you can reuse code again and again easily
+
+          class - blueprint of object .
+          object - real world entity.
+
+          example  car = class (having properties and methods)
+          maruti , toyota fortuner = objects  */
+        class Hello {
+            message() {
+                console.log("hello everyone");
+            }
+        }
+        let a = new Hello(); // here we make a object of class Hello
+        // a is a object of class Hello
+        a.message(); // with help of object we can access members and methods inside class.
+        // three types of method:
+        /* 1.constructor
+     2. prototype
+     3.static
+   constructor - used tpo initilize the object . it call automatically by just creating object.
+    static - we can call static method without making object .
+
+ --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+        // MODULES 
+        // with the help of modules you can use any function , variables , classes of one file to into other file.
+        /* we have two function inside modules 
+  1.export
+  2.import
+
+*/
+        /*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+        // PROMISES
+        // promise is a function takes some function which also take two more function resolve and reject.
+        // we check condition under promises and it tells us condtion will fulfill or not and then other things using then and catch
+
+        function prom(complete) {
+
+            return new Promise(function(resolve, reject) {
+                console.log("fetchind data,please wait.")
+                if (complete) {
+                    resolve("I am successful");
+                } else {
+                    reject("I am failed");
+                }
+            });
+        }
+        let onfulfilment = (result) => {
+            console.log(result);
+        }
+        let onrejection = (error) => {
+            console.log(error);
+        }
+        prom(true).then(onfulfilment);
+        prom(true).catch(onrejection);
+
+        /*---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        //Promise.all()
+
+        // if we have lots of promise function then it is difficult to write then catch again and again so to avoid that problem we have promise.all function
+        // if all promise function resolve then only then function use if one of them will reject then we use catch and show error massage
+        let p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('first promise has resolved');
+                resolve(10);
+            }, 1 * 1000);
+
+        });
+        let p2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('second promise has resolved');
+                resolve(20);
+            }, 2 * 1000);
+
+        });
+
+        let p3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('third promise has resolved');
+                resolve(30);
+            }, 3 * 1000);
+
+        });
+        var total = 0;
+        Promise.all([p1, p2, p3]).then((result) => {
+
+            for (var i in result) {
+                total += result[i];
+            }
+            console.log(`results: ${result}`);
+            console.log(`Total: ${total}`);
+        }).catch((error) => {
+            console.log(`results: ${error}`);
+        });
+
+        /*------------------------------------------------------------------------------------------------------------------------------------*/
+        // AJAX
+        /* A - Asynchronpus
+           j - JavaScript
+           A - and 
+           x - XML
+
+           AJAX is a technique for creating fast and dynamic web pages.
+
+           */
+    </script>
+
+</body>
+
+</html>

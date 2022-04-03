@@ -1,0 +1,1 @@
+Here we load data.this is text file
